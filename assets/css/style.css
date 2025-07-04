@@ -802,7 +802,7 @@ body {
   letter-spacing: 2rem;
   font-size: 6rem;
   z-index: 2;
-  /* margin-top: 1rem; */
+  margin-top: 10rem;
   text-transform: uppercase;
 }
 
@@ -826,7 +826,7 @@ body {
   justify-content: center;
   align-items: left;
   z-index: 2;
-  gap: 8rem;
+  gap: 5rem;
 }
 
 .container-viñetas-pag2 {
