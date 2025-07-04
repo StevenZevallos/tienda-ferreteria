@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <button class="nav-toggle">☰</button>
+            <div class="logo-container">
+                <h1>GRUPO</h1>
+                <div class="logo">
+                    <img src="../assets/img/logo.png" alt="logo">
+                </div>
+                <h1>ORE</h1>
+            </div>
+            <button class="cart-icon" id="cart-icon">
+                🛒<span id="cart-count">0</span>
+            </button>
+        </nav>
+    </header>    
+
+    <!-- Carrito -->
+    <div id="cart-container" class="cart-container hidden">
+        <h2>Tu Carrito</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total">Total: S/ 0.00</p>
+        <!-- Botón vaciar carrito -->
+        <button id="clear-cart" class="btn-vaciar-carrito">Vaciar Carrito</button>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../index.html#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="../pagina3-tienda/tienda.html">Tienda</a></li>
+            <li><a href="../pagina4-guia/guia.html">Guia</a></li>
+            <li><a href="../index.html#contactanos">Contáctanos</a></li>
+        </ul>
+    </aside>
+
+    <!-- Overlay exclusivo del sidebar -->
+    <div class="sidebar-overlay"></div>
+
+
+    <!-- Espaciador -->
+    <div class="navbar-spacer"></div>
+ 
+    <!-- SECCION 1 -->
+    <section class="hero-pag3" id="tienda">
+        <div class="hero-overlay"></div>
+        <div class="container-banner-pag3">
+            <h1>Tienda</h1>
+        </div>
+    </section>
+
+    <!-- SECCION 2 -->
+
+    <section class="seccion-2-pag3">
+        <h2 class="titulo-seccion">Nuestros Productos</h2>
+    
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide filter-btn" data-category="tornillos">
+                <img src="../assets/img/categoria-tornillo-perno.jpg" alt="Tornillos y Pernos">
+                <p>Tornillos y Pernos</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="cascos">
+                <img src="../assets/img/categoria-cascos.jpg" alt="Cascos">
+                <p>Cascos de Seguridad</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="fierro-corrugado">
+                <img src="../assets/img/categoria-fierro.png" alt="Fierro Corrugado">
+                <p>Fierro Corrugado</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="pinturas">
+                <img src="../assets/img/categoria-pinturas.jpg" alt="Pinturas y Acabados">
+                <p>Pinturas y Acabados</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="cemento">
+                <img src="../assets/img/cementos-sol.png" alt="Cemento y Ladrillos">
+                <p>Cemento y Ladrillos</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="herramientas">
+                <img src="../assets/img/categoria-herramientas.jpg" alt="Herramientas Eléctricas">
+                <p>Herramientas Eléctricas</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="escaleras">
+                <img src="../assets/img/escalera-aluminio-multiusos.png" alt="Escaleras Multiusos">
+                <p>Escaleras Multiusos</p>
+            </div>
+            
+            <div class="swiper-slide filter-btn" data-category="plomeria">
+                <img src="../assets/img/categoria-plomeria.jpg" alt="Plomería y Accesorios">
+                <p>Plomería y Accesorios</p>
+            </div>   
+            
+            <!-- Slide categoría de alquiler -->
+            <div class="swiper-slide filter-btn" data-category="alquiler">
+                <img src="../assets/img/categoria-alquiler.jpg" alt="Alquiler de Herramientas">
+                <p>Alquiler de Herramientas</p>
+            </div>
+        </div>
+        
+
+
+
+        <!-- Flechas -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <div class="separador-productos">
+            <h3>Productos Disponibles</h3>
+        </div>
+        
+        <!-- Buscador -->
+        <div class="busqueda-container">
+            <input type="text" id="buscador" placeholder="Buscar productos...">
+        </div>
+        
+        <!-- Ordenar -->
+        <div class="filtros-orden">
+            <label for="orden">Ordenar por:</label>
+            <select id="orden">
+                <option value="default">Predeterminado</option>
+                <option value="precio-asc">Precio: Menor a Mayor</option>
+                <option value="precio-desc">Precio: Mayor a Menor</option>
+                <option value="nombre-asc">Nombre: A - Z</option>
+                <option value="nombre-desc">Nombre: Z - A</option>
+            </select>
+        </div>
+        
+        <!-- Contenedor de Productos -->
+        <div id="productos-container" class="productos-grid">
+            <!-- Aquí se renderizan los productos filtrados -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="site-footer">
+
+        <!-- SECCIÓN PRINCIPAL DEL FOOTER (COLOR MOSTAZA) -->
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+    
+                    <!-- Columna 1: Logo y Sobre Nosotros -->
+                    <div class="footer-column about-column">
+                        <h2 class="footer-logo">FERREVIEW ORE</h2>
+                        <p class="about-text">
+                            "Encuentra los mejores productos y herramientas para tus proyectos. Calidad garantizada, precios competitivos y un servicio al cliente dedicado a brindarte la mejor experiencia de compra."
+                        </p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- Columna 2: Enlaces Rápidos -->
+                    <div class="footer-column links-column">
+                        <h3>Enlaces Rápidos</h3>
+                        <ul>
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Tienda</a></li>
+                            <li><a href="#">Guía</a></li>
+                            <li><a href="#">Contáctanos</a></li>
+                        </ul>
+                    </div>
+    
+                    <!-- Columna 3: Contacto -->
+                    <div class="footer-column contact-column">
+                        <h3>Contáctanos</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Perú<br>Huancayo</li>
+                            <li><i class="fas fa-phone-alt"></i> (123) 456-7890</li>
+                            <li><i class="fas fa-envelope"></i> contact@ferreviewore.com</li>
+                        </ul>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+        <!-- BARRA INFERIOR DE COPYRIGHT (COLOR GRIS) -->
+        <div class="footer-sub">
+            <div class="container">
+                <p>© 2025 Highness. All rights reserved. Design by Uptechies.</p>
+            </div>
+        </div>
+    
+    </footer>
+    
+    
+
+
+    <script src="../assets/javascript/script.js"></script>
+</body>
+</html>
